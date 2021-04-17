@@ -1,11 +1,17 @@
+import Link from 'next/link';
 import React, { FC } from 'react';
 
 export const PureBlogItem: FC<Props> = ({ id, title }) => (
   <li>
-    <span>{id} : </span>
-    <span className="cursor-pointer text-blue-500 border-b border-blue-500 hover:bg-gray-200">
-      {title}
-    </span>
+    <span>{id}: </span>
+    <Link href={`/blog/${id}`}>
+      <a
+        className="cursor-pointer text-blue-500 border-b border-blue-500 hover:bg-gray-200"
+        href={`/blog/${id}`}
+      >
+        {title}
+      </a>
+    </Link>
   </li>
 );
 

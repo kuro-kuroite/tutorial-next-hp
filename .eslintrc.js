@@ -1,4 +1,4 @@
-'use strict'; // eslint-disable-line
+'use strict';
 
 const tsc = require('./scripts/src/js/cjs/tsc.cjs');
 

@@ -2,12 +2,10 @@ import React, { FC } from 'react';
 
 import { BlogList, Props as BlogListProps } from './BlogList/BlogList';
 
-export const PureContact: FC<Props> = ({ blogs }) => (
-  <BlogList {...{ blogs }} />
-);
+export const PureBlog: FC<Props> = ({ blogs }) => <BlogList {...{ blogs }} />;
 
-export const Contact: FC<Props> = ({ blogs }) => {
-  return <PureContact {...{ blogs }} />;
+export const Blog: FC<Props> = ({ blogs }) => {
+  return <PureBlog {...{ blogs }} />;
 };
 
 export type PureProps = BlogListProps;

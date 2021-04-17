@@ -4,3 +4,7 @@ export type Blog = {
   title: string;
   userId: number;
 };
+
+export type BlogParams = {
+  id: string;
+};

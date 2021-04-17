@@ -1,6 +1,6 @@
 import React, { VFC } from 'react';
 
-import { Contact } from '../components/ContactPage/Contact';
+import { Contact } from '../components/Contact/Contact';
 import { Layout } from '../components/Layout/Layout';
 
 const PureContactPage: VFC = () => (

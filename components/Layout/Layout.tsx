@@ -41,9 +41,9 @@ export const PureLayout: FC<Props> = ({ children, title }) => (
     <main className="px-2 py-0 flex flex-col justify-center items-center">
       {children}
     </main>
-    <footer className="w-full h-12 flex justify-center items-center border-t">
+    <footer className="w-full h-12 flex justify-center items-center border-solid border-0 border-t border-gray-200">
       <a
-        className="flex items-center"
+        className="flex items-center cursor-pointer text-blue-500"
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         rel="noopener noreferrer"
         target="_blank"

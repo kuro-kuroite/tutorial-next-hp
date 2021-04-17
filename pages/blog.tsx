@@ -1,13 +1,13 @@
 import { GetStaticProps } from 'next';
 import React, { VFC } from 'react';
 
-import { BlogList } from '../components/Blog/BlogList/BlogList';
+import { Blog } from '../components/Blog/Blog';
 import { Layout } from '../components/Layout/Layout';
-import { fetchAllBlogsData } from '../lib/posts';
-import { Blog } from '../types/blog';
+import { fetchAllBlogsData } from '../lib/blogs';
+import { Blog as BlogType } from '../types/blog';
 
 const PureBlogPage: VFC<PureProps> = ({ blogs }) => (
-  <Layout title="Blog">{blogs && <BlogList {...{ blogs }} />}</Layout>
+  <Layout title="Blog">{blogs && <Blog {...{ blogs }} />}</Layout>
 );
 
 const BlogPage: VFC<Props> = ({ blogs }) => {
@@ -19,7 +19,7 @@ const BlogPage: VFC<Props> = ({ blogs }) => {
 export default BlogPage;
 
 export type StaticProps = {
-  blogs: Blog[];
+  blogs: BlogType[];
 };
 
 export type Props = StaticProps;
