@@ -1,3 +1,4 @@
+import { NextPage } from 'next';
 import React, { VFC } from 'react';
 
 import { Contact } from '../components/Contact/Contact';
@@ -9,7 +10,7 @@ const PureContactPage: VFC = () => (
   </Layout>
 );
 
-const ContactPage: VFC = () => {
+const ContactPage: NextPage = () => {
   return <PureContactPage />;
 };
 

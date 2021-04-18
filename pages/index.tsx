@@ -1,8 +1,9 @@
+import { NextPage } from 'next';
 import React from 'react';
 
 import { Layout } from '../components/Layout/Layout';
 
-const IndexPage = () => (
+const IndexPage: NextPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
     <h1>
       Hello Next.js

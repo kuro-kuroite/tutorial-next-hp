@@ -1,10 +1,13 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React, { VFC } from 'react';
 
-import { BlogDetail } from '../../components/BlogDetail/BlogDetail';
+import {
+  BlogDetail,
+  Props as BlogDetailProps,
+} from '../../components/BlogDetail/BlogDetail';
 import { Layout } from '../../components/Layout/Layout';
 import { fetchAllBlogIds, fetchBlogData } from '../../lib/blogs';
-import { Blog, BlogParams } from '../../types/blog';
+import { BlogParams } from '../../types/blog';
 
 const PureBlogPage: VFC<PureProps> = ({ blog: { body, id, title } }) => (
   <Layout title="Blog">
@@ -12,7 +15,7 @@ const PureBlogPage: VFC<PureProps> = ({ blog: { body, id, title } }) => (
   </Layout>
 );
 
-const BlogPage: VFC<Props> = ({ blog }) => {
+const BlogPage: NextPage<Props> = ({ blog }) => {
   // TODO(blogs): loading, failure
   if (!blog) {
     return <div>loading...</div>;
@@ -24,7 +27,7 @@ const BlogPage: VFC<Props> = ({ blog }) => {
 export default BlogPage;
 
 export type StaticProps = {
-  blog: Blog;
+  blog: BlogDetailProps;
 };
 
 export type Props = StaticProps;
@@ -32,7 +35,12 @@ export type Props = StaticProps;
 export type PureProps = Props;
 
 export const getStaticPaths: GetStaticPaths<BlogParams> = async () => {
-  const paths = await fetchAllBlogIds();
+  const { data } = await fetchAllBlogIds();
+  const paths = data.posts.map(({ id }) => ({
+    params: {
+      id: id.toString(),
+    },
+  }));
 
   return {
     fallback: false,
@@ -43,7 +51,9 @@ export const getStaticPaths: GetStaticPaths<BlogParams> = async () => {
 export const getStaticProps: GetStaticProps<StaticProps, BlogParams> = async ({
   params: { id } = { id: '' },
 }) => {
-  const blog = await fetchBlogData(id);
+  // TODO: validate id, data using error
+  const { data } = await fetchBlogData(id);
+  const blog = data.post;
 
   return {
     props: { blog },
