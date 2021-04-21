@@ -5,7 +5,7 @@ import { FacebookIcon } from './assets/FacebookIcon';
 import { GitHubIcon } from './assets/GitHubIcon';
 import { TwitterIcon } from './assets/TwitterIcon';
 
-export const PureContact: FC<Props> = () => (
+export const PureContact: FC<PureProps> = () => (
   <div className="bg-white text-center shadow-xl p-8 w-80 rounded">
     <div className="mt-4">
       <p className="font-bold">Contact info</p>
@@ -64,6 +64,6 @@ export const Contact: FC<Props> = () => {
   return <PureContact />;
 };
 
-export type PureProps = Record<string, unknown>;
+export type PureProps = Props;
 
-export type Props = PureProps;
+export type Props = Record<string, unknown>;

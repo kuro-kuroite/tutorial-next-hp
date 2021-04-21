@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
 
-export const PureBlog: FC<Props> = ({ body, id, title }) => (
+export const PureBlog: FC<PureProps> = ({ body, id, title }) => (
   <article>
     <h2 className="pb-4">ID: {id}</h2>
     <h1 className="mb-8 text-xl font-bold">{title}</h1>
@@ -33,10 +33,10 @@ export const Blog: FC<Props> = ({ body, id, title }) => {
   return <PureBlog {...{ body, id, title }} />;
 };
 
-export type PureProps = {
+export type PureProps = Props;
+
+export type Props = {
   body: string;
   id: number;
   title: string;
 };
-
-export type Props = PureProps;

@@ -30,9 +30,9 @@ export type StaticProps = {
   blog: BlogDetailProps;
 };
 
-export type Props = StaticProps;
-
 export type PureProps = Props;
+
+export type Props = StaticProps;
 
 export const getStaticPaths: GetStaticPaths<BlogParams> = async () => {
   const { data } = await fetchAllBlogIds();

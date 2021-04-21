@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { FC } from 'react';
 
-export const PureLayout: FC<Props> = ({ children, title }) => (
+export const PureLayout: FC<PureProps> = ({ children, title }) => (
   <div
     className="grid min-h-screen text-gray-600 text-sm font-mono"
     style={{
@@ -59,8 +59,8 @@ export const Layout: FC<Props> = ({ children, title }) => {
   return <PureLayout {...{ children, title }} />;
 };
 
-export type PureProps = {
+export type PureProps = Props;
+
+export type Props = {
   title: string;
 };
-
-export type Props = PureProps;

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
 
-export const PureBlogItem: FC<Props> = ({ id, title }) => (
+export const PureBlogItem: FC<PureProps> = ({ id, title }) => (
   <li>
     <span>{id}: </span>
     <Link href={`/blog/${id}`}>
@@ -19,9 +19,9 @@ export const BlogItem: FC<Props> = ({ id, title }) => {
   return <PureBlogItem {...{ id, title }} />;
 };
 
-export type PureProps = {
+export type PureProps = Props;
+
+export type Props = {
   id: number;
   title: string;
 };
-
-export type Props = PureProps;

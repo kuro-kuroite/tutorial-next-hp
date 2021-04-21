@@ -17,11 +17,11 @@ const BlogPage: NextPage<Props> = ({ blogs }) => {
 
 export default BlogPage;
 
-export type StaticProps = BlogProps;
+export type PureProps = Props;
 
 export type Props = StaticProps;
 
-export type PureProps = Props;
+export type StaticProps = BlogProps;
 
 export const getStaticProps: GetStaticProps<StaticProps> = async () => {
   // TODO: validate data using error
